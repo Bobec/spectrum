@@ -70,5 +70,7 @@ module.exports = (req, res) => {
   console.log('done, saved results to out/faceLandmarkDetection.jpg')
 
 
-  res.status(200).send(detectionsWithExpressions[0].expressions);
+  // res.status(200).send(detectionsWithExpressions[0].expressions);
+  const date = new Date().toString();
+  res.status(200).send(date);
 };
