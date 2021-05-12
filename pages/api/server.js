@@ -48,14 +48,15 @@ function saveFile(fileName, buf) {
     res.statusCode = 200
 
     // load weights
-    const MODELS_URL = './pages/api/models';
-    res.json({'path': MODELS_URL})
+    // const MODELS_URL = './pages/api/models';
+    const MODELS_URL = path.join(__dirname, './models');
+    res.json({"hello": MODELS_URL})
     // await faceapi.nets.faceLandmark68Net.loadFromDisk(MODELS_URL)
     // await faceapi.nets.faceRecognitionNet.loadFromDisk(MODELS_URL)
     // await faceapi.nets.faceExpressionNet.loadFromDisk(MODELS_URL)
     // await faceapi.nets.ssdMobilenetv1.loadFromDisk(MODELS_URL)
     // // load the image
-    // const img = await canvas.loadImage('./pages/api/imgs_src/da.jpeg')
+    // const img = await canvas.loadImage('imgs_src/da.jpeg')
 
     // // create a new canvas and draw the detection and landmarks
     // const out = faceapi.createCanvasFromMedia(img)
