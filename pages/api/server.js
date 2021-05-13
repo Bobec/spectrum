@@ -1,54 +1,55 @@
-const faceapi = require("face-api.js")  
-const canvas = require("canvas")  
-const fs = require("fs")  
-const path = require("path")
-const fetch = require('node-fetch');
+// const faceapi = require("face-api.js")  
+// const canvas = require("canvas")  
+// const fs = require("fs")  
+// const path = require("path")
+// const fetch = require('node-fetch');
 
-// mokey pathing the faceapi canvas
-const { Canvas, Image, ImageData } = canvas  
-faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
-faceapi.env.monkeyPatch({ fetch: fetch });
+// // mokey pathing the faceapi canvas
+// const { Canvas, Image, ImageData } = canvas  
+// faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
+// faceapi.env.monkeyPatch({ fetch: fetch });
 
-const faceDetectionNet = faceapi.nets.ssdMobilenetv1
+// const faceDetectionNet = faceapi.nets.ssdMobilenetv1
 
-// SsdMobilenetv1Options
-const minConfidence = 0.5
+// // SsdMobilenetv1Options
+// const minConfidence = 0.5
 
-// TinyFaceDetectorOptions
-const inputSize = 408  
-const scoreThreshold = 0.5
+// // TinyFaceDetectorOptions
+// const inputSize = 408  
+// const scoreThreshold = 0.5
 
-// MtcnnOptions
-const minFaceSize = 50  
-const scaleFactor = 0.8
+// // MtcnnOptions
+// const minFaceSize = 50  
+// const scaleFactor = 0.8
 
-// function getFaceDetectorOptions(net) {  
-//     return net === faceapi.nets.ssdMobilenetv1
-//         ? new faceapi.SsdMobilenetv1Options({ minConfidence })
-//         : (net === faceapi.nets.tinyFaceDetector
-//             ? new faceapi.TinyFaceDetectorOptions({ inputSize, scoreThreshold })
-//             : new faceapi.MtcnnOptions({ minFaceSize, scaleFactor })
-//         )
-// }
+// // function getFaceDetectorOptions(net) {  
+// //     return net === faceapi.nets.ssdMobilenetv1
+// //         ? new faceapi.SsdMobilenetv1Options({ minConfidence })
+// //         : (net === faceapi.nets.tinyFaceDetector
+// //             ? new faceapi.TinyFaceDetectorOptions({ inputSize, scoreThreshold })
+// //             : new faceapi.MtcnnOptions({ minFaceSize, scaleFactor })
+// //         )
+// // }
 
-// const faceDetectionOptions = getFaceDetectorOptions(faceDetectionNet)
+// // const faceDetectionOptions = getFaceDetectorOptions(faceDetectionNet)
 
-// simple utils to save files
-const baseDir = path.resolve(__dirname, './out')  
-function saveFile(fileName, buf) {  
-    if (!fs.existsSync(baseDir)) {
-      fs.mkdirSync(baseDir)
-    }
-    // this is ok for prototyping but using sync methods
-    // is bad practice in NodeJS
-    fs.writeFileSync(path.resolve(baseDir, fileName), buf)
-  }
+// // simple utils to save files
+// const baseDir = path.resolve(__dirname, './out')  
+// function saveFile(fileName, buf) {  
+//     if (!fs.existsSync(baseDir)) {
+//       fs.mkdirSync(baseDir)
+//     }
+//     // this is ok for prototyping but using sync methods
+//     // is bad practice in NodeJS
+//     fs.writeFileSync(path.resolve(baseDir, fileName), buf)
+//   }
 
-  export default async (req, res) => {
+  export default (req, res) => {
     res.statusCode = 200
 
     // load weights
     // const MODELS_URL = './pages/api/models';
+    const path = require("path")
     const MODELS_URL = path.join(__dirname, './models');
     res.json({"hello": MODELS_URL})
     // await faceapi.nets.faceLandmark68Net.loadFromDisk(MODELS_URL)
