@@ -31,7 +31,6 @@
 import  path  from "path"
 import faceapi from "face-api.js" 
 // const { serverRuntimeConfig } = getConfig()
-import canvas from "canvas" 
 import fetch from 'node-fetch'
 
 // mokey pathing the faceapi canvas
