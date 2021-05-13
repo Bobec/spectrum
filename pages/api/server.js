@@ -28,12 +28,11 @@
 //     fs.writeFileSync(path.resolve(baseDir, fileName), buf)
 //   }
 
-const path  = require("path")
-const faceapi = require("face-api.js") 
-import getConfig from 'next/config'
+import  path  from "path"
+import faceapi from "face-api.js" 
 // const { serverRuntimeConfig } = getConfig()
-const canvas = require("canvas")  
-const fetch = require('node-fetch');
+import canvas from "canvas" 
+import fetch from 'node-fetch'
 
 // mokey pathing the faceapi canvas
 // const { Canvas, Image, ImageData } = canvas  
