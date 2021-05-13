@@ -55,7 +55,7 @@ export default async (req, res) => {
     res.statusCode = 200
 
     // load weights
-    const MODELS_URL = path.join(__dirname, '/static/models')
+    const MODELS_URL = '/static/models'
     
     // await faceapi.nets.faceLandmark68Net  .loadFromDisk   (MODELS_URL)
     // await faceapi.nets.faceRecognitionNet .loadFromDisk   (MODELS_URL)
