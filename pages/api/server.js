@@ -44,15 +44,16 @@
 //     fs.writeFileSync(path.resolve(baseDir, fileName), buf)
 //   }
 
+import path from "path"
+const faceapi = require("face-api.js") 
+import getConfig from 'next/config'
+const { serverRuntimeConfig } = getConfig()
   export default async (req, res) => {
     res.statusCode = 200
 
     // load weights
     //  const MODELS_URL = './pages/api/models';
-    const path = require("path")
-    const faceapi = require("face-api.js")  
-
-    const MODELS_URL = './static/models';
+    const MODELS_URL = path.join(serverRuntimeConfig.PROJECT_ROOT, '/static/models');
     
     
     await faceapi.nets.faceLandmark68Net.loadFromDisk(MODELS_URL)
