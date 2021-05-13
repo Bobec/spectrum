@@ -8,9 +8,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@tensorflow-models/mobilenet": "^2.0.4",
-    "@tensorflow/tfjs": "^1.2.10",
-    "@tensorflow/tfjs-node": "^1.2.10",
     "canvas": "^2.7.0",
     "face-api.js": "^0.22.2",
     "next": "10.x",
