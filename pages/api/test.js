@@ -1,5 +1,4 @@
 import faceapi from "face-api.js"
-const tf = require('@tensorflow/tfjs');
 
 export default async (req, res) => {
     res.statusCode = 200
