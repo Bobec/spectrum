@@ -60,7 +60,7 @@
     await faceapi.nets.faceExpressionNet.loadFromDisk(MODELS_URL)
     await faceapi.nets.ssdMobilenetv1.loadFromDisk(MODELS_URL)
     // // load the image
-    //  const img = await canvas.loadImage('./imgs_src/da.jpeg')
+    const img = await canvas.loadImage('./imgs_src/da.jpeg')
 
     // // // create a new canvas and draw the detection and landmarks
     //  const out = faceapi.createCanvasFromMedia(img)
