@@ -52,7 +52,7 @@
     const path = require("path")
     const faceapi = require("face-api.js")  
 
-    const MODELS_URL = path.join(__dirname, './models');
+    const MODELS_URL = path.join(__dirname, './pages/api/models');
     
     
     await faceapi.nets.faceLandmark68Net.loadFromDisk(MODELS_URL)
