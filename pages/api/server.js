@@ -74,4 +74,5 @@
     
     res.json(detectionsWithExpressions[0].expressions)
     //res.json({"hello": MODELS_URL})
+    res.end()
 }
