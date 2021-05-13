@@ -59,7 +59,7 @@ export default async (req, res) => {
     // load weights
     const MODELS_URL = path.join(serverRuntimeConfig.PROJECT_ROOT, '/static/models');
     
-    await faceapi.nets.faceLandmark68Net  .loadFromDisk   (MODELS_URL)
+    // await faceapi.nets.faceLandmark68Net  .loadFromDisk   (MODELS_URL)
     // await faceapi.nets.faceRecognitionNet .loadFromDisk   (MODELS_URL)
     // await faceapi.nets.faceExpressionNet  .loadFromDisk   (MODELS_URL)
     // await faceapi.nets.ssdMobilenetv1     .loadFromDisk   (MODELS_URL)
