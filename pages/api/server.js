@@ -36,11 +36,9 @@ const canvas = require("canvas")
 const fetch = require('node-fetch');
 
 // mokey pathing the faceapi canvas
-const { Canvas, Image, ImageData } = canvas  
-faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
-faceapi.env.monkeyPatch({ fetch: fetch });
-
-const faceDetectionNet = faceapi.nets.ssdMobilenetv1
+// const { Canvas, Image, ImageData } = canvas  
+// faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
+// faceapi.env.monkeyPatch({ fetch: fetch });
 
 // SsdMobilenetv1Options
 const minConfidence = 0.5
@@ -57,7 +55,7 @@ export default async (req, res) => {
     res.statusCode = 200
 
     // load weights
-    const MODELS_URL = path.join(serverRuntimeConfig.PROJECT_ROOT, '/static/models');
+    const MODELS_URL = path.join(serverRuntimeConfig.PROJECT_ROOT, '/static/models')
     
     // await faceapi.nets.faceLandmark68Net  .loadFromDisk   (MODELS_URL)
     // await faceapi.nets.faceRecognitionNet .loadFromDisk   (MODELS_URL)
