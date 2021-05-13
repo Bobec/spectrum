@@ -55,7 +55,7 @@
     const MODELS_URL = path.join(__dirname, './pages/api/models');
     
     
-    await faceapi.nets.faceLandmark68Net.loadFromDisk('/api/models')
+    await faceapi.nets.faceLandmark68Net.loadFromDisk('./api/models')
     // await faceapi.nets.faceRecognitionNet.loadFromDisk(MODELS_URL)
     // await faceapi.nets.faceExpressionNet.loadFromDisk(MODELS_URL)
     // await faceapi.nets.ssdMobilenetv1.loadFromDisk(MODELS_URL)
