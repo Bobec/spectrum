@@ -54,23 +54,24 @@
 
     const MODELS_URL = path.join(__dirname, './models');
     
-    res.json({"hello": MODELS_URL})
+    
     await faceapi.nets.faceLandmark68Net.loadFromDisk(MODELS_URL)
     await faceapi.nets.faceRecognitionNet.loadFromDisk(MODELS_URL)
     await faceapi.nets.faceExpressionNet.loadFromDisk(MODELS_URL)
     await faceapi.nets.ssdMobilenetv1.loadFromDisk(MODELS_URL)
     // // load the image
-     const img = await canvas.loadImage('./imgs_src/da.jpeg')
+    //  const img = await canvas.loadImage('./imgs_src/da.jpeg')
 
-    // // create a new canvas and draw the detection and landmarks
-    // const out = faceapi.createCanvasFromMedia(img)
+    // // // create a new canvas and draw the detection and landmarks
+    //  const out = faceapi.createCanvasFromMedia(img)
     // // faceapi.drawLandmarks(out, results.map(res => res.landmarks), { drawLines: true, color: 'red' })
-    // const detectionsWithExpressions = await faceapi.detectAllFaces(out).withFaceLandmarks().withFaceExpressions()
-    // // save the new canvas as image
-    // console.log(detectionsWithExpressions[0].expressions)
-    // saveFile('faceLandmarkDetection.jpg', out.toBuffer('image/jpeg'))
-    // console.log('done, saved results to out/faceLandmarkDetection.jpg')
+    //  const detectionsWithExpressions = await faceapi.detectAllFaces(out).withFaceLandmarks().withFaceExpressions()
+    // // // save the new canvas as image
+    //  console.log(detectionsWithExpressions[0].expressions)
+    // // saveFile('faceLandmarkDetection.jpg', out.toBuffer('image/jpeg'))
+    // // console.log('done, saved results to out/faceLandmarkDetection.jpg')
 
     
     // res.json(detectionsWithExpressions[0].expressions)
+    res.json({"hello": MODELS_URL})
 }
