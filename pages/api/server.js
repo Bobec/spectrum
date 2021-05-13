@@ -52,10 +52,10 @@
     const path = require("path")
     const faceapi = require("face-api.js")  
 
-    const MODELS_URL = path.join(__dirname, './pages/api/models');
+    const MODELS_URL = './static/models';
     
     
-    await faceapi.nets.faceLandmark68Net.loadFromDisk('/static/models')
+    await faceapi.nets.faceLandmark68Net.loadFromDisk(MODELS_URL)
     // await faceapi.nets.faceRecognitionNet.loadFromDisk(MODELS_URL)
     // await faceapi.nets.faceExpressionNet.loadFromDisk(MODELS_URL)
     // await faceapi.nets.ssdMobilenetv1.loadFromDisk(MODELS_URL)
