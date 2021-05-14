@@ -69,7 +69,7 @@ export default async (req, res) => {
     await faceapi.nets.ssdMobilenetv1     .loadFromDisk   (MODELS_URL)
 
     // // // // load the image
-    const img = await canvas.loadImage('./static/imgs_src/da.jpeg')
+    const img = await canvas.loadImage(req.body.photo)
 
     const detectionsWithExpressions = await faceapi.detectAllFaces(img).withFaceLandmarks().withFaceExpressions()
 
