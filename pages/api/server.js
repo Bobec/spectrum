@@ -78,6 +78,7 @@ export default async (req, res) => {
     // // // // // saveFile('faceLandmarkDetection.jpg', out.toBuffer('image/jpeg'))
     // // // // // console.log('done, saved results to out/faceLandmarkDetection.jpg')
     
+    console.log(detectionsWithExpressions[0].expressions)
     res.json(detectionsWithExpressions[0].expressions)
     // res.json({"hello": MODELS_URL})
     res.end()
