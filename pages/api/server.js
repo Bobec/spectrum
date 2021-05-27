@@ -58,28 +58,32 @@ const scaleFactor = 0.8
 
 
 export default async (req, res) => {
-    res.statusCode = 200
+    if(req.method == "POST") {
+        res.statusCode = 200
 
-    // load weights
-    const MODELS_URL ='./static/models';
+        // load weights
+        const MODELS_URL ='./static/models';
+        
+        await faceapi.nets.faceLandmark68Net  .loadFromDisk   (MODELS_URL)
+        await faceapi.nets.faceRecognitionNet .loadFromDisk   (MODELS_URL)
+        await faceapi.nets.faceExpressionNet  .loadFromDisk   (MODELS_URL)
+        await faceapi.nets.ssdMobilenetv1     .loadFromDisk   (MODELS_URL)
+
+        // // // // load the image
+        console.log(req.body.photoJPEG)
+
+        const detectionsWithExpressions = await faceapi.detectAllFaces(req.body.photoJPEG).withFaceLandmarks().withFaceExpressions()
+
+        // // // // // // save the new canvas as image
+        // // // //  console.log(detectionsWithExpressions[0].expressions)
+        // // // // // saveFile('faceLandmarkDetection.jpg', out.toBuffer('image/jpeg'))
+        // // // // // console.log('done, saved results to out/faceLandmarkDetection.jpg')
+        
+        console.log(detectionsWithExpressions[0].expressions)
+        res.json(detectionsWithExpressions[0].expressions)
+        // res.json({"hello": MODELS_URL})
+        res.end()
+    }
+    else
     
-    await faceapi.nets.faceLandmark68Net  .loadFromDisk   (MODELS_URL)
-    await faceapi.nets.faceRecognitionNet .loadFromDisk   (MODELS_URL)
-    await faceapi.nets.faceExpressionNet  .loadFromDisk   (MODELS_URL)
-    await faceapi.nets.ssdMobilenetv1     .loadFromDisk   (MODELS_URL)
-
-    // // // // load the image
-    console.log(req.query.photoJPEG)
-
-    const detectionsWithExpressions = await faceapi.detectAllFaces(req.body.photoJPEG).withFaceLandmarks().withFaceExpressions()
-
-    // // // // // // save the new canvas as image
-    // // // //  console.log(detectionsWithExpressions[0].expressions)
-    // // // // // saveFile('faceLandmarkDetection.jpg', out.toBuffer('image/jpeg'))
-    // // // // // console.log('done, saved results to out/faceLandmarkDetection.jpg')
-    
-    console.log(detectionsWithExpressions[0].expressions)
-    res.json(detectionsWithExpressions[0].expressions)
-    // res.json({"hello": MODELS_URL})
-    res.end()
 }
