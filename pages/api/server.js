@@ -59,6 +59,8 @@ const scaleFactor = 0.8
 
 export default async (req, res) => {
     if(req.method == "POST") {
+        var img = document.createElement('img');
+            img.src = req.body.photoJPEG;
         res.statusCode = 200
 
         // load weights
@@ -70,9 +72,9 @@ export default async (req, res) => {
         await faceapi.nets.ssdMobilenetv1     .loadFromDisk   (MODELS_URL)
 
         // // // // load the image
-        console.log(req.body.photoJPEG)
+        // console.log(req.body.photoJPEG)
 
-        const detectionsWithExpressions = await faceapi.detectAllFaces(req.body.photoJPEG).withFaceLandmarks().withFaceExpressions()
+        const detectionsWithExpressions = await faceapi.detectAllFaces(img).withFaceLandmarks().withFaceExpressions()
 
         // // // // // // save the new canvas as image
         // // // //  console.log(detectionsWithExpressions[0].expressions)
