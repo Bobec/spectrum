@@ -70,7 +70,6 @@ export default async (req, res) => {
 
     // // // // load the image
     console.log(req.query.photoJPEG)
-    res.json({"mess": req.query.photoJPEG})
 
     const detectionsWithExpressions = await faceapi.detectAllFaces(req.body.photoJPEG).withFaceLandmarks().withFaceExpressions()
 
