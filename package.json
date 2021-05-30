@@ -7,7 +7,12 @@
   "main": "app/build/index.js",
   "scripts": {
     "dev": "npm start",
-    "start": "npm start"
+    "prebuild": "echo --- tslint -c tslint.json -p tsconfig.json --fix",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "deploy": "now"
   },
   "license": "MIT",
   "dependencies": {
