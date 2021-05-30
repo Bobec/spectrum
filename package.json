@@ -1,17 +1,42 @@
 {
-  "name": "nextjs",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vercel-express",
+  "version": "1.1.0",
+  "description": "",
+  "author": "Duc Nguyen",
+  "homepage": "https://github.com/ngduc/vercel-express",
+  "main": "app/build/index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "vercel dev",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "next build",
-    "start": "next start"
+    "now-build": "yum install libuuid-devel libmount-devel && cp /lib64/{libuuid,libmount,libblkid}.so.1 node_modules/canvas/build/Release/ && npm run build",
+    "start": "next start",
+    "deploy": "now"
   },
+  "license": "MIT",
   "dependencies": {
-    "canvas": "^2.7.0",
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
     "face-api.js": "^0.22.2",
-    "next": "10.x",
-    "react": "17.x",
-    "react-dom": "17.x"
+    "canvas": "^2.7.0",
+    "helmet": "^4.4.1"
+  },
+  "devDependencies": {
+    "husky": "^5.1.1"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "printWidth": 120,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "parser": "typescript"
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo --- npm test"
+    }
   }
 }
