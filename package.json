@@ -5,12 +5,15 @@
   "author": "Duc Nguyen",
   "homepage": "https://github.com/ngduc/vercel-express",
   "main": "app/build/index.js",
+  "scripts": {
+    "dev": "npm start",
+    "start": "npm start"
+  },
   "license": "MIT",
   "dependencies": {
     "compression": "^1.7.4",
     "express": "^4.17.1",
     "face-api.js": "^0.22.2",
-    "canvas": "^2.7.0",
     "helmet": "^4.4.1"
   },
   "devDependencies": {
