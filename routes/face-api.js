@@ -20,8 +20,7 @@ router.post("/", async function (req, res, next) {
     // load weights
     const MODELS_URL ='./public/models';
     console.log("get faceapi")
-    
-    var img = document.createElement('img');
+    var img = new Canvas.Image; // Create a new Image
     img.src = req.body.base64;
 
     await faceapi.nets.faceLandmark68Net  .loadFromDisk   (MODELS_URL)
