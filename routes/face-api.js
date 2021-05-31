@@ -1,5 +1,18 @@
 var express = require("express");
+const faceapi = require("face-api.js")  
+const canvas = require("canvas")  
+const fs = require("fs")  
+const path = require("path")
+const fetch = require('node-fetch');
+
 var router = express.Router();
+
+
+// mokey pathing the faceapi canvas
+const { Canvas, Image, ImageData } = canvas  
+faceapi.env.monkeyPatch({ Canvas, Image, ImageData })
+faceapi.env.monkeyPatch({ fetch: fetch });
+
 
 /* GET home page. */
 router.post("/", async function (req, res, next) {
