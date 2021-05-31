@@ -19,9 +19,17 @@ router.post("/", async function (req, res, next) {
     
     // load weights
     const MODELS_URL ='./public/models';
-    console.log("get faceapi")
-    var img = new Canvas.Image; // Create a new Image
-    img.src = req.body.base64;
+    // console.log("get faceapi")
+    // var img = new Canvas.Image; // Create a new Image
+    // img.src = req.body.base64;
+    req.body.base64 = req.body.base64.replace(/^data:image\/jpeg+;base64,/, "");
+    req.body.base64 = req.body.base64.replace(/ /g, '+');
+
+    await fs.writeFile('./out.jpeg', req.body.base64, 'base64', function(err) {
+        console.log(err);
+    });
+
+    const referenceImage = await canvas.loadImage('./out.jpeg')
 
     await faceapi.nets.faceLandmark68Net  .loadFromDisk   (MODELS_URL)
     await faceapi.nets.faceRecognitionNet .loadFromDisk   (MODELS_URL)
@@ -29,7 +37,7 @@ router.post("/", async function (req, res, next) {
     await faceapi.nets.ssdMobilenetv1     .loadFromDisk   (MODELS_URL)
 
     console.log(req.body.base64)
-    const detectionsWithExpressions = await faceapi.detectAllFaces(img).withFaceLandmarks().withFaceExpressions()
+    const detectionsWithExpressions = await faceapi.detectAllFaces(referenceImage).withFaceLandmarks().withFaceExpressions()
 
     console.log(detectionsWithExpressions)
 
