@@ -2,12 +2,11 @@ var express = require("express");
 var router = express.Router();
 
 /* GET home page. */
-router.get("/", async function (req, res, next) {
+router.post("/", async function (req, res, next) {
     
     // load weights
     const MODELS_URL ='./public/models';
     console.log("get faceapi")
-    if(req.method == "POST") {
         console.log("here in post")
         await faceapi.nets.faceLandmark68Net  .loadFromDisk   (MODELS_URL)
         await faceapi.nets.faceRecognitionNet .loadFromDisk   (MODELS_URL)
@@ -18,7 +17,6 @@ router.get("/", async function (req, res, next) {
         const detectionsWithExpressions = await faceapi.detectAllFaces(req.body.base64).withFaceLandmarks().withFaceExpressions()
 
         console.log(detectionsWithExpressions)
-    }
 
     res.json({"goti": 'asta'})
 
