@@ -17,6 +17,7 @@ faceapi.env.monkeyPatch({ fetch: fetch });
 /* GET home page. */
 router.post("/", async function (req, res, next) {
     
+    console.log(req.body.base64)
     // load weights
     const MODELS_URL ='./public/models';
     // console.log("get faceapi")
