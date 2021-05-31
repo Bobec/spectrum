@@ -20,16 +20,19 @@ router.post("/", async function (req, res, next) {
     // load weights
     const MODELS_URL ='./public/models';
     console.log("get faceapi")
-        console.log("here in post")
-        await faceapi.nets.faceLandmark68Net  .loadFromDisk   (MODELS_URL)
-        await faceapi.nets.faceRecognitionNet .loadFromDisk   (MODELS_URL)
-        await faceapi.nets.faceExpressionNet  .loadFromDisk   (MODELS_URL)
-        await faceapi.nets.ssdMobilenetv1     .loadFromDisk   (MODELS_URL)
+    
+    var img = document.createElement('img');
+    img.src = req.body.base64;
 
-        console.log(req.body.base64)
-        const detectionsWithExpressions = await faceapi.detectAllFaces(req.body.base64).withFaceLandmarks().withFaceExpressions()
+    await faceapi.nets.faceLandmark68Net  .loadFromDisk   (MODELS_URL)
+    await faceapi.nets.faceRecognitionNet .loadFromDisk   (MODELS_URL)
+    await faceapi.nets.faceExpressionNet  .loadFromDisk   (MODELS_URL)
+    await faceapi.nets.ssdMobilenetv1     .loadFromDisk   (MODELS_URL)
 
-        console.log(detectionsWithExpressions)
+    console.log(req.body.base64)
+    const detectionsWithExpressions = await faceapi.detectAllFaces(img).withFaceLandmarks().withFaceExpressions()
+
+    console.log(detectionsWithExpressions)
 
     res.json({"goti": 'asta'})
 
