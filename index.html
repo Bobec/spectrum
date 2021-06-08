@@ -12,19 +12,19 @@
     <div class="container">
       <div id="emotion">
         <div id="emotion-anger">
-          <img src="assets/icons/angry.png" alt="" />
+          <img class="emotion" src="assets/icons/angry.png" alt="" />
         </div>
         <div id="emotion-fear">
-          <img src="assets/icons/fear.png" alt="" />
+          <img class="emotion" src="assets/icons/fear.png" alt="" />
         </div>
         <div id="emotion-happy">
-          <img src="assets/icons/happy.png" alt="" />
+          <img class="emotion" src="assets/icons/happy.png" alt="" />
         </div>
         <div id="emotion-sad">
-          <img src="assets/icons/sad.png" alt="" />
+          <img class="emotion" src="assets/icons/sad.png" alt="" />
         </div>
         <div id="emotion-surprise">
-          <img src="assets/icons/surprise.png" alt="" />
+          <img class="emotion" src="assets/icons/surprise.png" alt="" />
         </div>
       </div>
       <canvas id="canvas" class="canvas" width="400"></canvas>
@@ -48,5 +48,11 @@
     <script src="src/js/jeelizFaceTransfer.js"></script>
     <script src="src/js/emotion.js"></script>
     <script src="src/js/main.js"></script>
+    <style>
+      .emotion {
+        width: 40px;
+        height: 40px;
+      }
+    </style>
   </body>
 </html>
