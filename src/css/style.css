@@ -9,12 +9,6 @@
   text-align: center;
 }
 
-#emotion div {
-  padding: 0.25em;
-  float: left;
-  opacity: 0.0;
-}
-
 .container {
   margin-top: 2em !important;
   max-width: 400px;
@@ -28,11 +22,11 @@ h1 {
 
 footer div:nth-of-type(1) {
   position: absolute;
-  top: 1em;
+  bottom: 1em;
   right: 1em;
 }
 footer div:nth-of-type(2) {
   position: absolute;
-  bottom: 1em;
+  bottom: 0;
   right: 1em;
 }
