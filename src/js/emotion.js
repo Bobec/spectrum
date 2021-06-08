@@ -108,6 +108,6 @@ function get_emotions() {
       if(emotions[emotion] != max) 
         emotions[emotion] = 0;
   }
-
+  console.log(emotions)
   return emotions;
 }

@@ -61,6 +61,7 @@ function nextFrame() {
     console.log("Detected");
   } else {
     // Tell the user that detection is off.
+    document.getElementById("emotion-neutral").style.opacity = 1;
     console.log("Not Detected");
   }
   // Replay frame
