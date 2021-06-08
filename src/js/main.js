@@ -52,6 +52,7 @@ function nextFrame() {
       document.getElementById("emotion-happy").style.opacity = emotions.happy;
       document.getElementById("emotion-fear").style.opacity = emotions.fear;
       document.getElementById("emotion-sad").style.opacity = emotions.sad;
+      document.getElementById("emotion-neutral").style.opacity = emotions.neutral;
     }
 
     //**************************************************************************** */

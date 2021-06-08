@@ -79,6 +79,8 @@ const EXPRESSION2EMOTION = {
  */
 function get_emotions() {
   var max = 0;
+  
+  emotions['neutral'] = 0;
   for (const emotion in EXPRESSION2EMOTION) {
     if (EXPRESSION2EMOTION.hasOwnProperty(emotion)) {
       const config = EXPRESSION2EMOTION[emotion];
@@ -96,6 +98,10 @@ function get_emotions() {
       if(emotions[emotion] > max)
         max = emotions[emotion]
     }
+  }
+
+  if (max == 0) {
+    emotions['neutral'] = 1;
   }
 
   for (const emotion in EXPRESSION2EMOTION) {
