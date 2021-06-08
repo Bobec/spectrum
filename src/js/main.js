@@ -40,11 +40,12 @@ function errorCallback(errorCode) {
 function nextFrame() {
   if (JEEFACETRANSFERAPI.is_detected()) {
     // Do something awesome with rotation values
+    
     let rotation = JEEFACETRANSFERAPI.get_rotationStabilized();
     // Do something awesome with animation values
     expressions = JEEFACETRANSFERAPI.get_morphTargetInfluences();
     getMeanDisplacement(rotation);
-    if (displacement > DISPLACEMENT_THRESHOLD) {
+    
       let emotions = get_emotions();
       document.getElementById("emotion-anger").style.opacity = emotions.anger;
       document.getElementById("emotion-surprise").style.opacity =
@@ -53,15 +54,15 @@ function nextFrame() {
       document.getElementById("emotion-fear").style.opacity = emotions.fear;
       document.getElementById("emotion-sad").style.opacity = emotions.sad;
       document.getElementById("emotion-neutral").style.opacity = emotions.neutral;
-    }
+    
 
     //**************************************************************************** */
 
     // The API is detected
+    console.log(emotions)
     console.log("Detected");
   } else {
     // Tell the user that detection is off.
-    document.getElementById("emotion-neutral").style.opacity = 1;
     console.log("Not Detected");
   }
   // Replay frame
