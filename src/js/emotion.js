@@ -107,6 +107,7 @@ function get_emotions() {
   for (const emotion in EXPRESSION2EMOTION) {
       if(emotions[emotion] != max) 
         emotions[emotion] = 0;
+      else emotions[emotion] = 1;
   }
   // console.log(emotions)
   return emotions;
